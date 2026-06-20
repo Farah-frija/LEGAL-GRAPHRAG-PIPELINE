@@ -1,0 +1,45 @@
+# Web Scraping
+playwright
+httpx
+beautifulsoup4
+lxml
+fake-useragent
+markdownify
+tenacity
+redis
+bs4
+pymupdf
+
+# Graph Database
+#gqlalchemy
+#
+## LLM
+#openai
+#google-generativeai
+#langchain
+#langchain-openai
+#
+## Embeddings
+#sentence-transformers
+#torch
+#numpy
+#scipy
+
+# Utilities
+python-dotenv
+tqdm
+rich
+pydantic
+loguru
+aiofiles
+tiktoken
+# Bonus: Community Detection
+networkx
+python-louvain
+gqlalchemy
+google-genai
+langchain-text-splitters
+rank_bm25
+sacremoses
+huggingface_hub
+sentence_transformers

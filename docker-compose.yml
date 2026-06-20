@@ -1,0 +1,27 @@
+services:
+  redis:
+    image: redis:7.2-alpine
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes", "--appendfsync", "everysec"]
+    volumes:
+      - redis_data:/data
+
+  memgraph:
+    image: memgraph/memgraph-mage
+    ports:
+      - "7687:7687"   # Bolt protocol (queries)
+      - "7444:7444"   # HTTP monitoring
+    volumes:
+      - memgraph_data:/var/lib/memgraph
+
+  memgraph-lab:
+    image: memgraph/lab:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - memgraph
+  
+volumes:
+  redis_data:
+  memgraph_data:
