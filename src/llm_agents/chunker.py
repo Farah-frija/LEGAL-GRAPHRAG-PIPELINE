@@ -20,15 +20,21 @@ from gqlalchemy import Memgraph
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from loguru import logger
 from src.vector_ops.embedder import embed_texts
+from transformers import AutoTokenizer
 mg = Memgraph(
     host=os.getenv("MEMGRAPH_HOST", "localhost"),
     port=int(os.getenv("MEMGRAPH_PORT", 7687)),
 )
 
+_tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+
+def token_len(text: str) -> int:
+    return len(_tokenizer.encode(text, add_special_tokens=False))
+
 splitter = RecursiveCharacterTextSplitter(
-    chunk_size=400,
+    chunk_size=510,
     chunk_overlap=50,
-    length_function=len,
+    length_function=token_len,   # ← tokens, not chars
 )
 
 # ── Memgraph helpers ──────────────────────────────────────────────────────────

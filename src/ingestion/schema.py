@@ -38,12 +38,9 @@ _CONSTRAINTS = [
 _INDEXES = [
     # Lookup indexes used during ingestion and search
     "CREATE INDEX ON :Document(id);",
-    "CREATE INDEX ON :Document(date);",
-    "CREATE INDEX ON :Document(category);",
-    "CREATE INDEX ON :Document(status);",
+  
     "CREATE INDEX ON :Topic(name);",
-    "CREATE INDEX ON :Chunk(doc_id);",
-
+  
     # Vector indexes 
      "CREATE VECTOR INDEX chunk_embedding_idx ON :Chunk(embedding) "
      "WITH CONFIG {'dimension': 384, 'capacity': 1000000};",

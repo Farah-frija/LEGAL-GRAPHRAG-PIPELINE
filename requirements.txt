@@ -9,23 +9,6 @@ tenacity
 redis
 bs4
 pymupdf
-
-# Graph Database
-#gqlalchemy
-#
-## LLM
-#openai
-#google-generativeai
-#langchain
-#langchain-openai
-#
-## Embeddings
-#sentence-transformers
-#torch
-#numpy
-#scipy
-
-# Utilities
 python-dotenv
 tqdm
 rich
